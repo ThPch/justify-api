@@ -1,6 +1,7 @@
-# Tictactrip Back End API
+# Justifying Back End API
 
-This is an API created for Tictactrip technical tests
+This API is built to provide a service to a registered user. The user which isn't registered can sign up and then have to get a access token to login.
+Once logged in, he can use the service where a text can be justified to 80 characters
 
 ## Installing
 
