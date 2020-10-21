@@ -1,6 +1,7 @@
 /**====================================*\
  *  DEPENDENCIES CONFIGURATION
  ======================================*/
+ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const accessTokenPrivate = process.env.ACCESS_TOKEN_KEY;

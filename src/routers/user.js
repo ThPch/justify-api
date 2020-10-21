@@ -1,6 +1,7 @@
 /**====================================*\
  *  DEPENDENCIES CONFIGURATION
  ======================================*/
+ require('dotenv').config();
 const express = require('express');
 const util = require('util');
 const User = require('../models/User');
