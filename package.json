@@ -1,0 +1,34 @@
+{
+  "name": "tictactrip-test",
+  "version": "1.0.0",
+  "description": "Challenge back end tictactrip",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cron": "^1.8.2",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "env-cmd -f ./.env nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThPch/tictactrip-test.git"
+  },
+  "keywords": [
+    "tictactrip"
+  ],
+  "author": "Thomas Perche",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThPch/tictactrip-test/issues"
+  },
+  "homepage": "https://github.com/ThPch/tictactrip-test#readme"
+}
