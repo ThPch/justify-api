@@ -7,8 +7,6 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const nbMaxWords = process.env.MAX_WORDS_DAY;
 
-
-
 const userSchema = mongoose.Schema({
     name: {
         type: String,
