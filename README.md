@@ -107,26 +107,23 @@ Get a justified text
 
 **Condition** : If the word's count excess 80 000 words
 
+**Important note** : Every night at midnight, the word's count is reseted to 0 for every registered users.
+
 **Code** : `402 Payment Required`
 
 **Message** : `Payment Required`
 
 ---
 
+## Unit Testing
+Using mocha & chai for testing
+visit http://mochajs.org and http://chaijs.com for details
 
-Détail des tâches à effectuer :
+Running test :
 
-1. Justifier les lignes d'un string tous les 80 chars : ok
-2. Créer une méthode d'authentification utilisateur
-	2.a L'utilisateur envoie requête post avec un un json body {"email":"foo@bar.com"} sur la route /api/token : ok
-	2.b L'utilisateur reçoit un token unique : ok
-	2.c Chaque jour, l'utilisateur possède un total de 80 000 mots justifiable
+```
+npm test -- --recursive
+```
 
-3. L'utilisateur envoie axios.post son token + le text sur la route /api/justify
-	3.a L'api check en fonction du jour, du token de l'user et de son email s'il peut justifier son string
-	3.b Cas ok : Renvoie un string justifié tous les 80 chars : ok
-	3.c Cas ko : Renvoie status code 402 : Payment Required : ok
-
-4. Implémenter des tests unitaire
-
-5. Documenter l'application
+- Test of the function countWords()
+- Test of the function justifyStr()

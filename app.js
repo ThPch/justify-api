@@ -17,7 +17,7 @@ require('./src/db/db');
  ======================================*/
 const app = express();
 
-var rawBodySaver = function (req, res, buf, encoding) {
+const rawBodySaver = function (req, res, buf, encoding) {
     if (buf && buf.length) {
       req.rawBody = buf.toString(encoding || 'utf8');
     }
@@ -33,7 +33,7 @@ app.use(userRouter);
 /**===========================================================================*\
  *  DAILY TASK WHO WILL RESET ALL WORDS COUNTS OF EVERY USER TO 0
  =============================================================================*/
- let job = new CronJob('0 0 * * *', function() {
+ const job = new CronJob('0 0 * * *', function() {
   User.resetCount();
   util.log(`All word counters have been reset`);
 }, null, true)
