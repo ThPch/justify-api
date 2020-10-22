@@ -128,7 +128,7 @@ npm test -- --recursive
 - Test of the function countWords()
 - Test of the function justifyStr()
 
-**Expectation** :
+**Expectation** : 2/2 tests are passing
 ```
   Javascript Function
     Words count and justifying
