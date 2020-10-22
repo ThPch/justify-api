@@ -127,3 +127,11 @@ npm test -- --recursive
 
 - Test of the function countWords()
 - Test of the function justifyStr()
+
+**Expectation** : `  Javascript Function
+    Words count and justifying
+      √ should return the correct total words in a string
+      √ should return a string of 217 characters transformed (justifyed width of 80 characters) into 246 characters
+
+
+  2 passing`
