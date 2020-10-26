@@ -28,9 +28,9 @@ const justifyStr = (str, len = 80) => {
     //Check is there is a text to justify
     if ((str.length > 1) && (Math.sign(len))) {
 
-        let re = RegExp("(?:\\s|^)(.{1," + len + "})(?=\\s|$)", "g");
-        let res = [];
-        let finalResult = [];
+        const re = RegExp("(?:\\s|^)(.{1," + len + "})(?=\\s|$)", "g");
+        const res = [];
+        const finalResult = [];
 
         //Splitting the text in the res[]
         while ((m = re.exec(str)) !== null) {

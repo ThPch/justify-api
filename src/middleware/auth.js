@@ -3,7 +3,6 @@
  ======================================*/
  require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
 const accessTokenPrivate = process.env.ACCESS_TOKEN_KEY;
 
 
@@ -13,7 +12,7 @@ const accessTokenPrivate = process.env.ACCESS_TOKEN_KEY;
 * @param { res } res is the response
 * @param { callback method } next
 */
-let authenticateJWT = (req, res, next) => {
+const authenticateJWT = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (authHeader) {
         const token = authHeader.split(' ')[1];
