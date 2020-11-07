@@ -1,5 +1,5 @@
 {
-  "name": "tictactrip-test",
+  "name": "justify-api",
   "version": "1.0.0",
   "description": "Challenge back end tictactrip",
   "main": "app.js",
@@ -9,6 +9,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "cron": "^1.8.2",
     "dotenv": "^8.2.0",
     "eslint": "^7.11.0",
@@ -28,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThPch/tictactrip-test.git"
+    "url": "git+https://github.com/ThPch/justify-api.git"
   },
   "keywords": [
     "tictactrip"
@@ -36,7 +37,7 @@
   "author": "Thomas Perche",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ThPch/tictactrip-test/issues"
+    "url": "https://github.com/ThPch/justify-api/issues"
   },
-  "homepage": "https://github.com/ThPch/tictactrip-test#readme"
+  "homepage": "https://github.com/ThPch/justify-api#readme"
 }

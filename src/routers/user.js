@@ -24,6 +24,26 @@ router.get('/', function(req, res) {
 });
 
 /**
+* Get all the users
+*/
+router.get('/api/users', async (req, res) => {
+    try {
+        await User.find({}, (err, users) => {
+            if(err){
+                res.send(err)
+            }
+
+            //destructuring array to remove unwanted fields
+            let userList = users.map(e => e._doc).map(({password, count, ...u}) => ({   ...u }))
+            res.json(userList)
+        })
+        
+    } catch (error) {
+        res.status(404).send(error)
+    }
+});
+
+/**
 * Post request to sign up to the API, will create an user based on the params
 * @param { body } email, password, username
 */

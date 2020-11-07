@@ -13,20 +13,57 @@ npm start
 The local server run on port 5000
 The public server will be communicated through email.
 
+## .env file format
+
+ACCESS_TOKEN_KEY=
+MAX_WORDS_DAY=
+MONGODB_URL=
+PORT=5000
+
 ## Infos
 
-| Credentials       | Value  |
-| ------------- | :-----|
-| **email**      |  tictac@trip.com |
-| **password**      |  voyage2020 |
-
+| Credentials  | Value           |
+| ------------ | :-------------- |
+| **email**    | tictac@trip.com |
+| **password** | voyage2020      |
 
 ## Endpoints
 
+- [Users](#Users)
 - [Token](#Token)
 - [Justify](#Justify)
 
 ---
+
+## Users
+
+Fetching all users from the DB
+
+**URL** : `/api/users`
+
+**Method** : `GET`
+
+#### Success Response
+
+A list of users (\_id, name, email)
+
+**Code** : `200 OK`
+
+**Content example**
+
+```json
+{
+  "_id": "eyJhbGciAzJIUzI1NiIsInR5cCI6IkpXVCJ9",
+  "name": "username",
+  "email": "email@mail.com"
+}
+```
+
+#### Error Response
+
+**Condition** : No users in the DB
+
+**Code** : `404 Users not found : No user in the DB`
 
 ## Token
 
@@ -42,8 +79,8 @@ Used to get an access Token for a registered User.
 
 ```json
 {
-    "email": "[valid email]",
-    "password": "[password in plain text]"
+  "email": "[valid email]",
+  "password": "[password in plain text]"
 }
 ```
 
@@ -57,20 +94,17 @@ A token to access api service justify endpoints
 
 ```json
 {
-    "accessToken": "eyJhbGciAzJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpY3RhY0B0cmlwLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA4JE1Nc2tTR2w1YUxFbVZzemNtc3d4d08xVjMueUVXMzkwbmliZFFjckKZukZqcDA2ckxUTWRxIiwiaWF0IjoxNjAyNjc3OTM0fQ.s-T2W58zI7saaTxKwVXY4SqsbTKUphRdB4KccoH08Bs"
+  "accessToken": "eyJhbGciAzJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpY3RhY0B0cmlwLmNvbSIsInBhc3N3b3JkIjoiJDJhJDA4JE1Nc2tTR2w1YUxFbVZzemNtc3d4d08xVjMueUVXMzkwbmliZFFjckKZukZqcDA2ckxUTWRxIiwiaWF0IjoxNjAyNjc3OTM0fQ.s-T2W58zI7saaTxKwVXY4SqsbTKUphRdB4KccoH08Bs"
 }
 ```
 
 #### Error Response
 
-
 **Condition** : Something get wrong with the request.
 
 **Code** : `400 BAD REQUEST : Invalid login credentials`
 
-
 ---
-
 
 ## Justify
 
@@ -117,6 +151,7 @@ Get a justified text
 ---
 
 ## Unit Testing
+
 Using mocha & chai for testing
 visit http://mochajs.org and http://chaijs.com for details
 
@@ -130,6 +165,7 @@ npm test -- --recursive
 - Test of the function justifyStr()
 
 **Expectation** : 2/2 tests are passing
+
 ```
   Javascript Function
     Words count and justifying
@@ -138,4 +174,4 @@ npm test -- --recursive
 
 
   2 passing
-  ```
+```

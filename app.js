@@ -10,6 +10,7 @@ const User = require('./src/models/User');
 const CronJob = require('cron').CronJob;
 const util = require("util");
 require('./src/db/db');
+import cors from 'cors';
 
 
 /**====================================*\
@@ -28,6 +29,9 @@ app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
 app.use(bodyParser.raw({ verify: rawBodySaver, type: '*/*' }));
 
 app.use(userRouter);
+
+//CORS setup (to cross call from localhost applications)
+app.use(cors())
 
 
 /**===========================================================================*\
