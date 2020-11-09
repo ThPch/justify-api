@@ -26,7 +26,7 @@ router.get('/', function(req, res) {
 /**
 * Get all the users
 */
-router.get('/api/users', async (req, res) => {
+router.get('/api/users',async (req, res) => {
     try {
         await User.find({}, (err, users) => {
             if(err){

@@ -10,13 +10,16 @@ const User = require('./src/models/User');
 const CronJob = require('cron').CronJob;
 const util = require("util");
 require('./src/db/db');
-import cors from 'cors';
+const cors = require('cors');
 
 
 /**====================================*\
  *  EXPRESS CONFIGURATION
  ======================================*/
 const app = express();
+
+//CORS setup (to cross call from localhost applications)
+app.use(cors())
 
 const rawBodySaver = function (req, res, buf, encoding) {
     if (buf && buf.length) {
@@ -30,8 +33,7 @@ app.use(bodyParser.raw({ verify: rawBodySaver, type: '*/*' }));
 
 app.use(userRouter);
 
-//CORS setup (to cross call from localhost applications)
-app.use(cors())
+
 
 
 /**===========================================================================*\
