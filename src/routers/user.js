@@ -84,7 +84,10 @@ router.post('/api/token', async(req, res) => {
 * @param { String } email
 */
 router.post('/logout', (req, res) => {
-    res.send("Logout successful");
+    req.session.destroy(() => {
+        req.logout();
+        res.redirect("/");
+    });
 });
 
 
