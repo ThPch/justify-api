@@ -103,6 +103,7 @@ router.post('/api/justify', authenticateJWT, async(req, res) => {
     //1 : handling data from the react app 2 : handling data from postman
     !!req.body.data ? text = req.body.data.toString() : text = req.body.toString()
 
+    text = text.toString()
     if(text.length>1)
     {
         compteur = countWords(text)
@@ -132,7 +133,7 @@ router.post('/api/justify', authenticateJWT, async(req, res) => {
                 util.log(`${user.email} uptaded his words to : ${user.count}`)
                 
                 //We send back the text justified to the body
-                res.send(justifyStr(req.body.toString()));
+                res.send(justifyStr(text));
             }
             catch (error) {
                 util.log(`${error}}`)
