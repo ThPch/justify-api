@@ -98,14 +98,15 @@ router.post('/logout', (req, res) => {
 */
 router.post('/api/justify', authenticateJWT, async(req, res) => {
     res.setHeader('Content-Type', 'text/plain');
-    let compteur=0, user;
-    const text = req.body.toString()
+    let compteur=0, user, text;
+
+    //1 : handling data from the react app 2 : handling data from postman
+    !!req.body.data ? text = req.body.data.toString() : text = req.body.toString()
+
     if(text.length>1)
     {
         compteur = countWords(text)
     }
-
-    console.log("test")
 
     //Get the word's count of the user
     try {
