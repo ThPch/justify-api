@@ -105,12 +105,15 @@ router.post('/api/justify', authenticateJWT, async(req, res) => {
         compteur = countWords(text)
     }
 
+    console.log("test")
+
     //Get the word's count of the user
     try {
         user = await User.getCount(req.user.email)
 
         //The user doesn't exist
         if (!user) {
+            console.log("test")
             return res.status(401).send({error: 'Login failed! Check authentication credentials'})
         }
 
