@@ -31,6 +31,7 @@ const justifyStr = (str, len = 80) => {
         const re = RegExp("(?:\\s|^)(.{1," + len + "})(?=\\s|$)", "g");
         const res = [];
         const finalResult = [];
+        let m;
 
         //Splitting the text in the res[]
         while ((m = re.exec(str)) !== null) {

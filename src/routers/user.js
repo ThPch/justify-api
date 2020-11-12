@@ -97,23 +97,24 @@ router.post('/logout', (req, res) => {
 * @header { bearer String } accessToken
 */
 router.post('/api/justify', authenticateJWT, async(req, res) => {
+    res.setHeader('Content-Type', 'text/plain');
+    let compteur=0, user;
+    const text = req.body.toString()
+    if(text.length>1)
+    {
+        compteur = countWords(text)
+    }
 
-    let compteur=0;
+    //Get the word's count of the user
     try {
-        const text = req.body.toString()
-        if(text.length>1)
-        {
-            compteur = countWords(text)
-        }
+        user = await User.getCount(req.user.email)
 
-        //Get the word's count of the user
-        const user = await User.getCount(req.user.email)
-        
         //The user doesn't exist
         if (!user) {
             return res.status(401).send({error: 'Login failed! Check authentication credentials'})
         }
 
+        
         //The user is at his full words capacity for today, we sent back a status code 402 with a message
         if(user.count > maxWordsPerDay)
         {
@@ -122,21 +123,22 @@ router.post('/api/justify', authenticateJWT, async(req, res) => {
         }
         else{
             //We update the word's count on the DB
-            User.updateCount(req.user.email, compteur).then((user)=>{
+            try {
+                await User.updateCount(req.user.email, compteur)
                 util.log(`${user.email} uptaded his words to : ${user.count}`)
-            })
-            .catch((error) => {
+                
+                //We send back the text justified to the body
+                res.send(justifyStr(req.body.toString()));
+            }
+            catch (error) {
                 util.log(`${error}}`)
                 res.status(400).send({ error: error.message })
-            });
-
-            //We send back the text justified to the body
-            res.setHeader('Content-Type', 'text/plain');
-            res.send(justifyStr(req.body.toString()));
+            }
         }
-} catch (error) {
-    res.status(400).send({ error: error.message })
-}
+    }
+    catch (error) {
+        res.status(400).send({ error: error.message })
+    }
 });
 
 module.exports = router
